@@ -1,7 +1,7 @@
 //initialize all of our variables
 var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber;
 
-var autoPrefixBrowserList = ['last 2 versions', '>2%'];
+var autoPrefixBrowserList = ['last 2 versions', '> 2%'];
 
 //load all of our dependencies
 //add more here if you want to include more libraries
@@ -18,6 +18,7 @@ autoprefixer = require('gulp-autoprefixer');
 gulpSequence = require('gulp-sequence').use(gulp);
 shell       = require('gulp-shell');
 plumber     = require('gulp-plumber');
+ghPages     = require('gulp-gh-pages');
 
 gulp.task('browserSync', function() {
     browserSync({
@@ -194,6 +195,12 @@ gulp.task('scaffold', function() {
   );
 });
 
+//cherry-pick latest commit to gh-pages branch
+gulp.task('ghpages-deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
+
 //this is our master task when you run `gulp` in CLI / Terminal
 //this is the main watcher to use when in active development
 //  this will:
@@ -209,4 +216,4 @@ gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy'));
+gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'ghpages-deploy'));
