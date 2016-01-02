@@ -1,0 +1,27 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Designer: Cordell Yee
+    Contact: cordell@philanthropy.gg
+
+    Developer: Matan Kushner
+    Contact: matan@philanthropy.gg
+    Twitter: @matchai
+
+# THANKS
+
+    TeSPA
+
+    The rest of the Tespa East REC team:
+      Angelique Rein
+      Devon Phillips
+      Jason Shen
+      Joseph Rudy
+      Michelle Shin
+      Zach Ashton
+
+    Tespa East Regional Coordinators:
+      Billy Sprout
+      Yugina Yun
