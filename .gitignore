@@ -1,6 +1,7 @@
-node_modules
-.sass-cache
+node_modules/
+.sass-cache/
 .DS_Store
+.publish/
 app/styles/styles.css
 app/scripts/app.js
 dist/
