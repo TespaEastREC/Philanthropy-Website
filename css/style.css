@@ -672,7 +672,7 @@ p.tagline, .address-detail a.tagline {
     padding-right: 15px; }
   .copyright a.social-icon {
     height: 20px;
-    line-height: 12px !important;
+    line-height: 32px !important;
     overflow: hidden;
     text-shadow: none;
     width: 20px;
