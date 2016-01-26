@@ -5,3 +5,49 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  // Default type
+  color: $brand-gray;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+}
+
+
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+
+header {
+  padding: 50px 12% 0;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: baseline;
+  align-items: center;
+}
+
+.menu-icon {
+  position: relative;
+  font-size: 2em;
+  color: $brand-gray;
+}
+
+.main-tickets {
+  justify-content: flex-end;
+  background: $brand-red;
+  border: 0;
+  padding: 1.1em 1.3em;
+
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
