@@ -1,5 +1,5 @@
 //initialize all of our variables
-var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber;
+var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber, spritesmith;
 
 var autoPrefixBrowserList = ['last 2 versions', '> 2%'];
 
@@ -19,6 +19,7 @@ gulpSequence = require('gulp-sequence').use(gulp);
 shell       = require('gulp-shell');
 plumber     = require('gulp-plumber');
 ghPages     = require('gulp-gh-pages');
+spritesmith = require('gulp.spritesmith');
 
 gulp.task('browserSync', function() {
     browserSync({
@@ -35,7 +36,7 @@ gulp.task('browserSync', function() {
 
 //compressing images & handle SVG files
 gulp.task('images', function(tmp) {
-    gulp.src(['app/images/*.jpg', 'app/images/*.png'])
+    gulp.src(['app/images/*.jpg', 'app/images/*.png', '!app/images/sprites/*.*'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
@@ -44,10 +45,27 @@ gulp.task('images', function(tmp) {
 
 //compressing images & handle SVG files
 gulp.task('images-deploy', function() {
-    gulp.src(['app/images/**/*', '!app/images/README'])
+    gulp.src(['app/images/**/*', '!app/images/README', '!app/images/sprites/*.*'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(gulp.dest('dist/images'));
+});
+
+//collecting sprites to build a sprite map
+gulp.task('sprite', function() {
+    var spriteData =
+        gulp.src(['app/images/sprites/*.jpg', 'app/images/sprites/*.png'])
+            //prevent pipe breaking caused by errors from gulp plugins
+            .pipe(plumber())
+            .pipe(spritesmith({
+              imgName: 'sprite.png',
+              imgPath: '/images/sprite.png',
+              cssName: '_sprite.scss'
+            }));
+    //output back to app folder to be compressed
+    spriteData.img.pipe(gulp.dest('app/images'));
+    //output back to app folder to get minified
+    spriteData.css.pipe(gulp.dest('app/styles/scss/general'));
 });
 
 //compiling our Javascripts
@@ -207,7 +225,7 @@ gulp.task('ghpages-deploy', function() {
 //  startup the web server,
 //  start up browserSync
 //  compress all scripts and SCSS files
-gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
+gulp.task('default', ['browserSync', 'sprite', 'scripts', 'styles'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('app/scripts/src/**', ['scripts']);
     gulp.watch('app/styles/scss/**', ['styles']);
@@ -216,4 +234,4 @@ gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'ghpages-deploy'));
+gulp.task('deploy', gulpSequence('clean', 'scaffold', 'sprite', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'ghpages-deploy'));

@@ -3,5 +3,7 @@ node_modules/
 .DS_Store
 .publish/
 app/styles/styles.css
+app/styles/scss/general/_sprite.scss
+app/images/sprite.png
 app/scripts/app.js
 dist/

@@ -2,7 +2,9 @@
   "name": "Philanthropy-Website",
   "version": "1.0.0",
   "description": "The information and registration site for the Philanthropy event.",
-  "dependencies": {},
+  "dependencies": {
+    "gulp.spritesmith": "^6.0.1"
+  },
   "devDependencies": {
     "browser-sync": "^2.9.10",
     "gulp": "^3.9.0",

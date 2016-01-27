@@ -9,3 +9,7 @@
 @import 'layout/_main';
 
 //pages
+
+//sprites
+@import 'general/_sprite';
+@include sprites($spritesheet-sprites);
