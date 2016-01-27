@@ -28,7 +28,7 @@ body {
 \*------------------------------------*/
 
 header {
-  padding: 50px 12% 0;
+  padding: 50px 16% 0;
   display: flex;
   justify-content: space-between;
   vertical-align: baseline;
@@ -50,4 +50,53 @@ header {
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+/*------------------------------------*\
+    #CONTENT
+\*------------------------------------*/
+
+.wrapper {
+  padding: 100px 16% 0;
+  justify-content: space-between;
+}
+
+.title {
+  position: relative;
+  font-size: 2em;
+  width: 50%;
+  padding: 0 5%;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.title h1 {
+  transform-origin: left center;
+  position: absolute;
+  left: 50%;
+  font-weight: 900;
+}
+
+.main-title {
+  // Positioning of main title can be tweaked in this transform
+  transform: rotate(90deg) translate3d(-2.7em, -0.5em, 0);
+}
+
+.main-date {
+  transform: rotate(90deg) translate3d(-4.3em, 0.5em, 0);
+}
+
+.avatar-glitch {
+  position: absolute;
+  visibility: hidden;
+}
+
+.accent {
+  color: $brand-red;
+}
+
+.content {
+  width: 50%;
+  padding: 0 5%;
 }
