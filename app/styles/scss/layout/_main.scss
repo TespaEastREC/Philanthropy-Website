@@ -28,7 +28,7 @@ body {
 \*------------------------------------*/
 
 header {
-  padding: 50px 16% 0;
+  padding: 30px 16% 50px;
   display: flex;
   justify-content: space-between;
   vertical-align: baseline;
@@ -93,8 +93,22 @@ header {
 }
 
 .avatar-glitch {
+  background: url('/images/Toon_Link.png') no-repeat;
+  background-size: contain;
   position: absolute;
-  visibility: hidden;
+  width: 80%;
+  height: 100%;
+  top: -70px;
+  left: -80px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(to right, rgba(255,255,255,0) 60%,rgba(255,255,255,1) 80%);
+    height: 100%;
+    width: 100%;
+    right: 0;
+  }
 }
 
 .accent {
