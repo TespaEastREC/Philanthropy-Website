@@ -75,7 +75,7 @@ header {
   transform-origin: left center;
   position: absolute;
   left: 50%;
-  font-weight: 900;
+  font-weight:   800;
 }
 
 .main-title {
@@ -103,4 +103,37 @@ header {
 .content {
   width: 50%;
   padding: 0 5%;
+}
+
+.content .logo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 100px;
+}
+
+.arcade-stick {
+  margin: 0 auto;
+}
+
+.details-location {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight:   800;
+  text-transform: uppercase;
+}
+
+.details {
+  margin: 0 auto;
+  display: flex;
+  width: 270px;
+}
+.details-date, .details-length {
+  margin: 0;
+  font-size: 1.2em;
+  font-family: 'Open Sans Condensed', sans-serif;
+  display: inline-block;
+  flex: 1;
+  text-align: center;
 }
