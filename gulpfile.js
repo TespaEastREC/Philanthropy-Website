@@ -222,14 +222,14 @@ gulp.task('ghpages-deploy', function() {
 //this is our master task when you run `gulp` in CLI / Terminal
 //this is the main watcher to use when in active development
 //  this will:
-//  startup the web server,
-//  start up browserSync
+//  startup the web server
+//  generate sprite sheet
 //  compress all scripts and SCSS files
 gulp.task('default', ['browserSync', 'sprite', 'scripts', 'styles'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('app/scripts/src/**', ['scripts']);
     gulp.watch('app/styles/scss/**', ['styles']);
-    gulp.watch('app/images/**', ['images']);
+    gulp.watch('app/images/**', ['sprite', 'images']);
     gulp.watch('app/*.html', ['html']);
 });
 
