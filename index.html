@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 
-	<body>
+	<body onload="setDays()">
 		<!--Preloader-->
 		<div class="preloader-it">
 			<div class="la-anim-1"></div>
@@ -147,7 +147,7 @@
 
 								<!--Counter-->
 								<div id="countdown">
-								  <span class="days">073</span>
+								  <span class="days" id="days">073</span>
 								</div>
 								<span class="small-hr"></span>
 								<span class="remain-days">More Days</span>
@@ -177,14 +177,14 @@
                                     We want to utilize this LAN as an opportunity to unite students across the eastern region that all share similar
                                         passions for gaming, as well as raise awareness and money for a charitable cause involved with
                                         issues that plague many students and gamers alike.</p><br>
-                                    
+
                                 <p class="tagline">Sponsorship</p>
 									<span class="small-hr"></span>
 									<p class="align-center">Tespa is the largest network of collegiate gaming and eSports organizations in the world, with chapters throughout North America. Tespa seeks to establish connections and help leaders emerge to create an amazing gaming event with the Regional Event Challenge (REC).
 <br><br>
 PhiLANthropy is an intercollegiate charity gaming LAN in which gamers from across the northeast US and Canada will come together to compete in tournaments, play friendly matches and contribute to raising money for charity. We have partnered with Extra Life and will be contributing our earnings to the Boston Children’s Hospital.
 <br><br>
-This event is the first of its kind, but with your support we are confident that we can pull off an amazing charity LAN. We would love to have you be a part of our event. Thanks so much for your consideration and please let us know if you have any questions. 
+This event is the first of its kind, but with your support we are confident that we can pull off an amazing charity LAN. We would love to have you be a part of our event. Thanks so much for your consideration and please let us know if you have any questions.
 <br><br>
                                         Check out our <a href="PhiLANthropy-Sponsorhip.pdf"><font color="EB586F">sponsorship deck</font></a> and contact us at <a href="mailto:contact@philanthropy.gg" target="_blank"><font color="EB586F">contact@philanthropy.gg</font></a>. We look forward to working with you!
 </p>
@@ -301,6 +301,8 @@ This event is the first of its kind, but with your support we are confident that
 		<!-- /Container -->
 
 		<!-- Scripts -->
+
+
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/angular.min.js"></script>
 		<script src="js/modernizr.custom.js"></script>
@@ -319,5 +321,16 @@ This event is the first of its kind, but with your support we are confident that
 		<script src="js/demo-1.js"></script>
 		<script src="js/jquery.placeholder.js"></script>
 		<script src="js/init.js"></script>
+
+    <script charset="utf-8">
+    window.onload = function() {
+      var dateNow = new Date();
+      var oneDay = 24 * 60 * 60 * 1000;
+      var eventDay = new Date(2016,2,12,10);
+      var daysLeft = Math.round(Math.abs((dateNow.getTime() - eventDay.getTime())/(oneDay)));
+
+      document.getElementById("days").innerHTML=daysLeft;
+    }
+    </script>
 	</body>
 </html>
