@@ -4,6 +4,7 @@
 
 *, *::before, *::after {
   box-sizing: border-box;
+  transition: all 300ms ease-out;
 }
 
 body {
@@ -99,16 +100,24 @@ header {
   transform-origin: left center;
   position: absolute;
   left: 50%;
-  font-weight:   800;
+  font-weight: 800;
+  transition: font-size 100ms ease-out;
+
+  animation-delay: 200ms;
+  animation-duration: 1200ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease;
 }
 
 .main-title {
   // Positioning of main title can be tweaked in this transform
   transform: rotate(90deg) translate3d(-2.7em, -0.5em, 0);
+  animation-name: mainTitleFade;
 }
 
 .main-date {
   transform: rotate(90deg) translate3d(-4.3em, 0.6em, 0);
+  animation-name: mainDateFade;
 }
 
 .main-date .accent {
@@ -235,6 +244,7 @@ footer {
     position: static;
     font-size: 1.4em;
     margin: 0;
+    animation-name: none;
   }
 
   .logo-desktop {
@@ -248,12 +258,12 @@ footer {
     display: block;
   }
 
-  .details-location {
-    margin-top: 1.5em;
-  }
-
   .avatar-glitch {
     display: none;
+  }
+
+  .details-location {
+    margin-top: 1.5em;
   }
 }
 
