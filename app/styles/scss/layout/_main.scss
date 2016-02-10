@@ -9,7 +9,7 @@
 body {
   display: flex;
   min-height: 100vh;
-  flex-direction: column;
+  flex-direction: row;
 
   // Default type
   color: $brand-gray;
@@ -31,6 +31,7 @@ header {
   padding: 30px 16% 50px;
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   vertical-align: baseline;
   align-items: center;
 }
@@ -45,17 +46,39 @@ header {
 .main-tickets {
   justify-content: flex-end;
   background: $brand-red;
-  border: 0;
+  border: transparent solid 4px;
   padding: 1.1em 1.3em;
+  text-decoration: none;
+  text-align: center;
 
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: background 150ms, border 150ms, color 150ms, transform 200ms ease;
+
+  &:hover {
+    border: $brand-red solid 4px;
+    background: #fff;
+    color: $brand-red;
+    transform: scale(1.04);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    transition: transform 80ms;
+  }
 }
 
 /*------------------------------------*\
     #CONTENT
 \*------------------------------------*/
+
+.landing {
+  flex-direction: column;
+  width: 100%;
+}
 
 .wrapper {
   padding: 100px 16% 0;
@@ -65,7 +88,7 @@ header {
 .title {
   position: relative;
   font-size: 2em;
-  width: 50%;
+  flex: 1;
   padding: 0 5%;
   font-weight: 700;
   white-space: nowrap;
@@ -116,14 +139,19 @@ header {
 }
 
 .content {
-  width: 50%;
+  flex: 1;
   padding: 0 5%;
+  align-items: center;
 }
 
-.content .logo {
+.logo-desktop, .logo-mobile {
   width: 100%;
   height: auto;
   margin-bottom: 100px;
+}
+
+.logo-mobile {
+  display: none;
 }
 
 .arcade-stick {
@@ -151,4 +179,94 @@ header {
   margin: 0 8px;
   font-size: 1.2em;
   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+footer {
+  width: 100%;
+  height: 2em;
+  flex: 1;
+}
+
+/*------------------------------------*\
+    #BREAKPOINTS
+\*------------------------------------*/
+
+@media (min-width: 721px) and (max-width: 1200px) {
+  .wrapper {
+    padding: 100px 5% 0;
+  }
+
+  .title {
+    transform: translate3d(25%,0,0);
+  }
+}
+
+@media (max-width: 720px) {
+
+  body {
+    flex-direction: column;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .wrapper {
+    padding: 30px 10px 0;
+    flex-direction: column;
+  }
+
+  .main-tickets {
+    width: 100%;
+    padding: 0.8em 0;
+  }
+
+  .main-title,
+  .main-date {
+    transform: initial;
+  }
+
+  .title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .title h1 {
+    position: static;
+    font-size: 1.4em;
+    margin: 0;
+  }
+
+  .logo-desktop {
+    display: none;
+  }
+
+  .logo-mobile {
+    width: 50%;
+    max-width: 220px;
+    margin: 4em auto;
+    display: block;
+  }
+
+  .details-location {
+    margin-top: 1.5em;
+  }
+
+  .avatar-glitch {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .title h1 {
+    font-size: 9vw;
+  }
+
+  .logo-mobile {
+    margin: 2em auto;
+  }
+
+  .details-location {
+    margin-top: 1em;
+  }
 }
