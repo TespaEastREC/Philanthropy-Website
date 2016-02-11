@@ -192,7 +192,10 @@ header {
 }
 
 .scroll-arrow-outer {
-  padding-top: 50px;
+  position: fixed;
+  bottom: 5%;
+  width: 100%;
+
   animation: fadeInDown;
   animation-delay: 1000ms;
   animation-duration: 1000ms;
@@ -203,10 +206,15 @@ header {
 .scroll-arrow {
   margin: 0 auto;
   transform: scale(0.75);
+  filter: drop-shadow(0 0  2px #fff)
+          drop-shadow(0 0  4px #fff)
+          drop-shadow(0 0  6px #fff)
+          drop-shadow(0 0  8px #fff)
+          drop-shadow(0 0 10px #fff);
 
   animation: mainTitleFade;
   animation-name: scroll-arrow;
-  animation-delay: 2s;
+  animation-delay: 1000ms;
   animation-duration: 1000ms;
   animation-direction: alternate;
   animation-fill-mode: both;
