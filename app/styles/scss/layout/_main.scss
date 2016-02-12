@@ -10,7 +10,7 @@
 body {
   display: flex;
   min-height: 100vh;
-  flex-direction: row;
+  flex-direction: column;
 
   // Default type
   color: $brand-gray;
@@ -191,12 +191,16 @@ header {
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.scroll-arrow-container {
+  transition: opacity 300ms ease;
+}
+
 .scroll-arrow-outer {
   position: fixed;
   bottom: 5%;
   width: 100%;
 
-  animation: fadeInDown;
+  animation-name: fadeInDown;
   animation-delay: 1000ms;
   animation-duration: 1000ms;
   animation-fill-mode: both;
@@ -212,7 +216,6 @@ header {
           drop-shadow(0 0  8px #fff)
           drop-shadow(0 0 10px #fff);
 
-  animation: mainTitleFade;
   animation-name: scroll-arrow;
   animation-delay: 1000ms;
   animation-duration: 1000ms;
@@ -220,6 +223,19 @@ header {
   animation-fill-mode: both;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.46, 0.93);
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*------------------------------------*\
+    #SPONSORS
+\*------------------------------------*/
+
+.sponsors {
+  flex: 1;
 }
 
 /*------------------------------------*\

@@ -45,3 +45,9 @@
     transform: translate3d(0,0,0) scale(0.8);
   }
 }
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
