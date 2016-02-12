@@ -23,6 +23,10 @@ body {
   flex: 1;
 }
 
+section {
+  display: flex;
+  flex-direction: row;
+}
 
 /*------------------------------------*\
     #HEADER
@@ -235,7 +239,28 @@ header {
 \*------------------------------------*/
 
 .sponsors {
-  flex: 1;
+  padding: 150px 16% 0;
+}
+
+.sponsors .section-heading {
+  width: 25%;
+}
+
+.sponsor-list {
+  width: 75%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+}
+
+.sponsor-slot {
+  width: 200px;
+  margin: 0.5vw;
+}
+
+.sponsor-slot img {
+  width: 200px;
+  height: 100%;
 }
 
 /*------------------------------------*\
