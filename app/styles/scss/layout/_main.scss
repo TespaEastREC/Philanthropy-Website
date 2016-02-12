@@ -310,6 +310,11 @@ footer {
   .title {
     transform: translate3d(25%,0,0);
   }
+
+  .sponsors {
+    padding: 15% 15% 0;
+    align-items: center;
+  }
 }
 
 @media (max-width: 720px) {
@@ -374,6 +379,25 @@ footer {
 
   .details-location {
     margin-top: 1.5em;
+  }
+
+  .sponsors {
+    align-items: flex-start;
+    padding: 15% 10% 0;
+  }
+
+  .sponsor-list {
+    width: 80%;
+    padding-right: 20px;
+  }
+
+  .sponsor-slot {
+    width: 100px;
+    margin: 3vw;
+  }
+
+  .sponsors .section-heading {
+    width: 30%;
   }
 }
 
