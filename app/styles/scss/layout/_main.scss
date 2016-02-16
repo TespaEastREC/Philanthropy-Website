@@ -239,7 +239,8 @@ header {
 \*------------------------------------*/
 
 .sponsors {
-  padding: 20% 20% 0;
+  margin-top: 400px;
+  padding: 0 20%;
   align-items: center;
 }
 
@@ -291,6 +292,92 @@ header {
 }
 
 /*------------------------------------*\
+    #WHY-GO
+\*------------------------------------*/
+
+.why-go {
+  margin-top: 400px;
+  padding: 0 15%;
+  align-items: center;
+
+  .section-heading {
+    padding-right: 15px;
+  }
+
+  .section-divider {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .divider-details {
+    position: absolute;
+    font-family: 'Open Sans Condensed', sans-serif;
+    transform-origin: bottom left;
+    transform: rotate(90deg);
+  }
+
+  .divider-date, .divider-duration {
+    position: static;
+    margin: 0;
+  }
+
+  .divider-duration {
+    color: $brand-red;
+  }
+
+  .section-title {
+    font-size: 1.5em;
+  }
+
+  .inner-section-heading {
+    position: relative;
+    width: 33% !important;
+    flex: none;
+  }
+}
+
+.why-go-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  width: 93.75%;
+  padding: 20% 0 20% 16.5%;
+  box-shadow: 0 0 84px rgba(0, 0, 0, 0.38);
+  background: url('/images/hands.png') no-repeat center center;
+  background-size: cover;
+}
+
+.why-go-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.why-go-item {
+  padding-right: 20px;
+  max-width: 50%;
+
+  &:nth-child(-n+2) {
+    padding-bottom: 20px;
+  }
+
+  h5 {
+    display: inline;
+    text-transform: uppercase;
+  }
+
+  .count {
+    color: $brand-red;
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 0.8em;
+    color: $secondary-gray;
+  }
+}
+
+
+/*------------------------------------*\
     #FOOTER
 \*------------------------------------*/
 
@@ -312,7 +399,8 @@ footer {
   }
 
   .sponsors {
-    padding: 15% 15% 0;
+    padding: 0 15%;
+    margin-top: 300px;
     align-items: center;
   }
 }
@@ -383,7 +471,8 @@ footer {
 
   .sponsors {
     align-items: flex-start;
-    padding: 15% 10% 0;
+    margin-top: 300px;
+    padding: 0 10%;
   }
 
   .sponsor-list {
