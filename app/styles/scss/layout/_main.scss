@@ -289,6 +289,11 @@ header {
 .sponsor-slot img {
   width: 100%;
   height: 100%;
+  transition: transform 150ms ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 }
 
 .section-number {
