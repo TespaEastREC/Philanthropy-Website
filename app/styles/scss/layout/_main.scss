@@ -430,7 +430,34 @@ header {
 \*------------------------------------*/
 
 footer {
+  flex: 1;
+  display: flex;
   padding: 50px;
+  height: 400px;
+  background: $brand-red;
+  border-top: #fff 25px solid;
+  margin-top: 100px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.white-logo {
+  height: 83px;
+  width: 354px;
+}
+
+.white-tickets {
+  @extend .main-tickets;
+  background: #fff;
+  color: $brand-red;
+
+    &:hover {
+      border: #fff solid 4px;
+      background: $brand-red;
+      color: #fff;
+      transform: scale(1.04);
+    }
 }
 
 /*------------------------------------*\
@@ -605,5 +632,9 @@ footer {
 
   .avatar-2 {
     transform: scale(0.5);
+  }
+
+  footer .white-logo {
+    transform: scale(0.75);
   }
 }
