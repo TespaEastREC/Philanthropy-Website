@@ -324,6 +324,16 @@ header {
   background: $brand-red;
 }
 
+.avatar-2 {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  height: 400px;
+  background: url('/images/Villager.png') no-repeat;
+  background-size: contain;
+  transform-origin: right center;
+}
+
 /*------------------------------------*\
     #WHY-GO
 \*------------------------------------*/
@@ -369,7 +379,7 @@ header {
 
   .inner-section-heading {
     position: relative;
-    width: 33% !important;
+    width: 33%;
     flex: none;
   }
 }
@@ -531,10 +541,20 @@ footer {
     width: 30%;
   }
 
+  .avatar-2 {
+    transform: scale(0.75);
+  }
+
   .why-go {
     padding: 0;
     flex-direction: column;
     margin-top: 300px;
+  }
+
+  .why-go .boxes-icon {
+    margin: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px);
   }
 
   .why-go .section-heading {
@@ -576,5 +596,14 @@ footer {
 
   .why-go-container {
     width: 100%;
+
+    .inner-section-heading {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .avatar-2 {
+    transform: scale(0.5);
   }
 }
