@@ -139,7 +139,7 @@ header {
 
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     background: linear-gradient(to right, rgba(255,255,255,0) 60%,rgba(255,255,255,1) 80%);
     height: 100%;
     width: 100%;
@@ -155,6 +155,10 @@ header {
   flex: 1;
   padding: 0 5%;
   align-items: center;
+}
+
+.content .boxes-icon {
+  margin: 0 auto;
 }
 
 .logo-desktop, .logo-mobile {
@@ -234,6 +238,30 @@ header {
   pointer-events: none;
 }
 
+.boxes-icon,
+.boxes-icon::before,
+.boxes-icon::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: $brand-red;
+
+}
+
+.boxes-icon {
+  position: relative;
+
+  &::before {
+    transform: translateX(11px);
+    position: absolute;
+  }
+
+  &::after {
+    transform: translateY(-11px);
+    position: absolute;
+  }
+}
+
 /*------------------------------------*\
     #SPONSORS
 \*------------------------------------*/
@@ -278,6 +306,11 @@ header {
   justify-content: flex-start;
 }
 
+.sponsors .boxes-icon {
+  margin-right: 3em;
+  transform: translateY(-15px);
+}
+
 .section-title {
   text-transform: uppercase;
   margin: 0;
@@ -299,6 +332,11 @@ header {
   margin-top: 400px;
   padding: 0 15%;
   align-items: center;
+
+  .boxes-icon {
+    margin-left: 10px;
+    transform: translateY(-15px);
+  }
 
   .section-heading {
     padding-right: 15px;
@@ -403,6 +441,10 @@ footer {
     margin-top: 300px;
     align-items: center;
   }
+
+  .why-go {
+    padding: 0 5%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -457,7 +499,7 @@ footer {
   .logo-mobile {
     width: 50%;
     max-width: 220px;
-    margin: 4em auto;
+    margin: 4em auto 5em;
     display: block;
   }
 
@@ -488,6 +530,35 @@ footer {
   .sponsors .section-heading {
     width: 30%;
   }
+
+  .why-go {
+    padding: 0;
+    flex-direction: column;
+    margin-top: 300px;
+  }
+
+  .why-go .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .why-go-container {
+    padding: 5% 10px;
+    flex-direction: column;
+
+    .inner-section-heading {
+      left: 30px;
+    }
+
+    .divider-details {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .why-go-list {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 500px) {
@@ -496,10 +567,14 @@ footer {
   }
 
   .logo-mobile {
-    margin: 2em auto;
+    margin: 2em auto 3em;
   }
 
   .details-location {
     margin-top: 1em;
+  }
+
+  .why-go-container {
+    width: 100%;
   }
 }
