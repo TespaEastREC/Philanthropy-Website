@@ -33,10 +33,9 @@ gulp.task('browserSync', function() {
     });
 });
 
-
 //compressing images & handle SVG files
-gulp.task('images', function(tmp) {
-    gulp.src(['app/images/*.jpg', 'app/images/*.png', '!app/images/sprite.png', '!app/images/sprites/*.*'])
+gulp.task('images', function() {
+    gulp.src(['app/images/**/*', '!app/images/README', '!app/images/sprites/*.*'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
