@@ -281,9 +281,13 @@ header {
 
 .sponsor-slot {
   display: flex;
-  width: 150px;
+  width: calc(25% - 2vw);
   margin: 1vw;
   align-items: center;
+}
+
+.sponsor-slot.feature {
+  width: calc(50% - 4vw);
 }
 
 .sponsor-slot img {
@@ -565,8 +569,12 @@ footer {
   }
 
   .sponsor-slot {
-    width: 100px;
+    width: 50%;
     margin: 3vw;
+  }
+
+  .sponsor-slot.feature {
+    width: 50%;
   }
 
   .sponsors .section-heading {
