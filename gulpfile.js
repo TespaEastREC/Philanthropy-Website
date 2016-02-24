@@ -228,7 +228,7 @@ gulp.task('default', ['browserSync', 'sprite', 'scripts', 'styles'], function() 
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('app/scripts/src/**', ['scripts']);
     gulp.watch('app/styles/scss/**', ['styles']);
-    gulp.watch('app/images/**', ['sprite', 'images']);
+    gulp.watch('app/images/sprites/**', ['sprite']);
     gulp.watch('app/*.html', ['html']);
 });
 
