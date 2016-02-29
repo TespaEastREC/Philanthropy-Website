@@ -35,7 +35,6 @@ section {
 header {
   padding: 30px 16% 50px;
   display: flex;
-  justify-content: space-between;
   flex-direction: row-reverse;
   vertical-align: baseline;
   align-items: center;
@@ -46,6 +45,27 @@ header {
   position: relative;
   font-size: 2em;
   color: $brand-gray;
+}
+
+.social-media {
+  margin-right: 20px;
+}
+
+.social-media a div {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+  background-size: 2em;
+	fill: $brand-gray;
+  margin: 5px;
+}
+
+.twitter {
+  background: url('/images/twitter-square.svg');
+}
+
+.facebook {
+  background: url('/images/facebook-square.svg');
 }
 
 .main-tickets {
