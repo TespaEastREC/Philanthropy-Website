@@ -161,6 +161,11 @@ header {
   margin: 0 auto;
 }
 
+.content-description {
+    font-size: 0.8em;
+    color: $secondary-gray;
+}
+
 .logo-desktop, .logo-mobile {
   width: 100%;
   height: auto;
@@ -529,6 +534,20 @@ header {
 
 .guest-item.item-2 {
   background: url('/images/guests/Dan_Dez_trans.png') no-repeat top/cover;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    background: url('/images/Pikachu.png') no-repeat top/cover;
+    width: 231px;
+    height: 220px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px) scale(0.65);
+    transform-origin: center top;
+    z-index: -1;
+  }
 }
 
 .guest-item.item-3 {
@@ -537,6 +556,10 @@ header {
 
 .guest-item.item-4 {
   background: url('/images/guests/JerKro_trans.png') no-repeat center/cover;
+}
+
+.guest-item.item-5 {
+  background: url('/images/guests/Chris_Sheldon_trans.png') no-repeat center/cover;
 }
 
 /*------------------------------------*\
@@ -726,11 +749,11 @@ footer {
   }
 
   .guests {
-    padding: 0 10%;
+    padding: 0;
   }
 
   .guest-item {
-    width: 60%;
+    width: 70%;
 
     &:nth-child(even) {
       align-self: flex-end;
@@ -741,8 +764,14 @@ footer {
     }
   }
 
+  .guest-name {
+    font-size: 1.1em;
+  }
+
   .guest-details {
-    width: 55%;
+    width: 35%;
+    transform: translateX(-110%);
+    font-size: 0.9em;
   }
 }
 
