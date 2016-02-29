@@ -724,6 +724,26 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+
+  .guests {
+    padding: 0 10%;
+  }
+
+  .guest-item {
+    width: 60%;
+
+    &:nth-child(even) {
+      align-self: flex-end;
+    }
+
+    &:nth-child(odd) {
+      align-self: flex-start;
+    }
+  }
+
+  .guest-details {
+    width: 55%;
+  }
 }
 
 @media (max-width: 500px) {
