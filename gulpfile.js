@@ -1,5 +1,5 @@
 //initialize all of our variables
-var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber, ghPages, spritesmith;
+var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber, ghPages;
 
 var autoPrefixBrowserList = ['last 2 versions', '> 2%'];
 
@@ -19,7 +19,6 @@ gulpSequence = require('gulp-sequence').use(gulp);
 shell       = require('gulp-shell');
 plumber     = require('gulp-plumber');
 ghPages     = require('gulp-gh-pages');
-spritesmith = require('gulp.spritesmith');
 
 gulp.task('browserSync', function() {
     browserSync({
@@ -48,23 +47,6 @@ gulp.task('images-deploy', function() {
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(gulp.dest('dist/images'));
-});
-
-//collecting sprites to build a sprite map
-gulp.task('sprite', function() {
-    var spriteData =
-        gulp.src(['app/images/sprites/*.jpg', 'app/images/sprites/*.png'])
-            //prevent pipe breaking caused by errors from gulp plugins
-            .pipe(plumber())
-            .pipe(spritesmith({
-              imgName: 'sprite.png',
-              imgPath: '/images/sprite.png',
-              cssName: '_sprite.scss'
-            }));
-    //output back to app folder to be compressed
-    spriteData.img.pipe(gulp.dest('app/images'));
-    //output back to app folder to get minified
-    spriteData.css.pipe(gulp.dest('app/styles/scss/general'));
 });
 
 //compiling our Javascripts
@@ -222,15 +204,13 @@ gulp.task('ghpages-deploy', function() {
 //this is the main watcher to use when in active development
 //  this will:
 //  startup the web server
-//  generate sprite sheet
 //  compress all scripts and SCSS files
-gulp.task('default', ['browserSync', 'sprite', 'scripts', 'styles'], function() {
+gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('app/scripts/src/**', ['scripts']);
     gulp.watch('app/styles/scss/**', ['styles']);
-    gulp.watch('app/images/sprites/**', ['sprite']);
     gulp.watch('app/*.html', ['html']);
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence('clean', 'scaffold', 'sprite', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'ghpages-deploy'));
+gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy', 'ghpages-deploy'));
