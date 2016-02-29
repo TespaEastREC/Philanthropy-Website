@@ -162,14 +162,19 @@ header {
 }
 
 .content-description {
-    font-size: 0.8em;
-    color: $secondary-gray;
+  margin-top: 30px;
+  font-size: 0.8em;
+  color: $secondary-gray;
+
+  a {
+    color: #2D77AE;
+  }
 }
 
 .logo-desktop, .logo-mobile {
   width: 100%;
   height: auto;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   pointer-events: none
 }
 
