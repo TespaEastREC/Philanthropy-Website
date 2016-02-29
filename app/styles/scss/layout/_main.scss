@@ -321,6 +321,7 @@ header {
 }
 
 .section-title {
+  font-size: 1.3em;
   text-transform: uppercase;
   margin: 0;
 }
@@ -366,24 +367,8 @@ header {
     margin-left: 0;
   }
 
-  .divider-details {
-    position: absolute;
-    font-family: 'Open Sans Condensed', sans-serif;
-    transform-origin: bottom left;
-    transform: rotate(90deg);
-  }
-
-  .divider-date, .divider-duration {
-    position: static;
-    margin: 0;
-  }
-
-  .divider-duration {
-    color: $brand-red;
-  }
-
   .section-title {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   .inner-section-heading {
@@ -433,6 +418,126 @@ header {
   }
 }
 
+.divider-details {
+  position: absolute;
+  font-family: 'Open Sans Condensed', sans-serif;
+  transform-origin: bottom left;
+  transform: rotate(90deg);
+}
+
+.divider-date, .divider-duration {
+  position: static;
+  margin: 0;
+}
+
+.divider-duration {
+  color: $brand-red;
+}
+
+/*------------------------------------*\
+    #GUESTS
+\*------------------------------------*/
+
+.guests {
+  display: flex;
+  margin-top: 400px;
+  padding: 0 15%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+  }
+
+  .section-divider {
+    margin-left: 0;
+  }
+
+  .divider-details {
+    position: static;
+    transform-origin: center center;
+    transform: translateY(100%) rotate(90deg);
+  }
+}
+
+.guest-item {
+  margin-top: 150px;
+  width: 75%;
+  max-width: 750px;
+  box-shadow: 15px 15px 68px rgba(0, 0, 0, 0.3);
+  height: 500px;
+}
+
+.guest-details {
+  transform: translateX(-110%);
+  width: 50%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.guest-item:nth-child(odd) .guest-details {
+  transform: translateX(110%);
+  float: right;
+}
+
+.guest-name {
+  display: block;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 5px;
+    margin-top: 10px;
+    background: $brand-red;
+  }
+}
+
+.guest-item h3 {
+  font-size: 0.83em;
+  display: inline;
+  text-transform: uppercase;
+}
+
+.guest-name {
+  color: $brand-red;
+}
+
+.guest-description-heading {
+  span {
+    color: $brand-red;
+    margin-right: 10px;
+  }
+}
+
+.guest-description {
+  color: $secondary-gray;
+}
+
+.guest-item.item-1 {
+  background: url('/images/guests/Snoopeh_trans.png') no-repeat center/cover;
+}
+
+.guest-item.item-2 {
+  background: url('/images/guests/Dan_Dez_trans.png') no-repeat top/cover;
+}
+
+.guest-item.item-3 {
+  background: url('/images/guests/Xem_trans.png') no-repeat top/cover;
+}
+
+.guest-item.item-4 {
+  background: url('/images/guests/JerKro_trans.png') no-repeat center/cover;
+}
 
 /*------------------------------------*\
     #FOOTER
